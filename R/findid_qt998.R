@@ -1,12 +1,16 @@
 #' Find commentaries in document
-#' @param text a html document.
-# text <- dat_i
+#' @param htmldat a html document.
+# htmldat <- dat_i
 
-findid_qt998 <- function(text){
-  indid <- gregexpr(pattern ="id=",text)
-  indidf <- gregexpr(pattern ="><div class",text)
-  indqnameq <- strsplit(pattern ="qnameq",text)
-
-  id <- substr(text,indid[[1]][1]+4,indidf[[1]][1]-2)
-  divid <- substr(text,inddivid[[1]][2],inddivid[[1]][1])
+findid_qt998 <- function(htmldat){
+  info <- agrep("qt998",htmldat)
+  textlist <- htmldat[info]
+  idtype <- unlist(lapply(textlist,function(x)sub(".*div id=\\\" *(.*?) *\\\".*", "\\1", x)))
+  divclass <- unlist(lapply(textlist,function(x)sub(".*div class=\\\" *(.*?) *\\\".*", "\\1",x)))
+  qnameq <- unlist(lapply(textlist,function(x)sub(".*qnameq *(.*?) *\\\".*", "\\1", x)))
+  qnametxt <- unlist(lapply(strsplit(textlist,"qnameq"),function(x)x[2]))
+  qnametxt <- unlist(lapply(qnametxt,function(x)sub(".*\\\"> *(.*?)", "\\1", x)))
+  return(data.frame(idtype,divclass,qnameq,qnametxt))
 }
+
+
