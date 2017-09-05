@@ -22,8 +22,7 @@ openquestfreq(xvec)
 x <- c("ca.4-6","-77","2-3 x","1 mal","2 mal","ein","zwei","Nie","sehr oft / ca. 20 mal")
 openquestfreq(x)
 
-x <- c("4,5","4.5","nein")
+x <- c("4,5","4.5","nein","einmal","ein halbes Jahr","ja","JA","02.3.")
 openquestfreq(x)
 
 }
-

@@ -23,4 +23,3 @@ openquestnum(xvec)
 
 
 }
-

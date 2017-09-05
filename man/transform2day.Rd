@@ -12,4 +12,3 @@ Transform Months to Days
 \examples{
 x <- c("9","9 Monate")
 }
-
