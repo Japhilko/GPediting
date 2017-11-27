@@ -37,7 +37,7 @@ get_statayear2 <- function(year){
     ind <- eval(parse(text=paste0("ind",i)))
     if (length(ind)>0){
       yearc <- eval(parse(text=paste0("yearc",i+1)))
-      dat_sr <- rbind(dat_sr,data.frame(stri=year[ind1],repl=yearc))
+      dat_sr <- rbind(dat_sr,data.frame(stri=year[ind],repl=yearc))
     }
   }
 
