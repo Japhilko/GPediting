@@ -1,5 +1,5 @@
 #' Correct a year variable
-
+#' @param year a variable with year information.
 
 get_statayear2 <- function(year){
   year1 <- substr(year,1,1)
